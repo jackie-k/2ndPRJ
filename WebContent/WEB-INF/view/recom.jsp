@@ -23,11 +23,5 @@
     </div>
 </div>
 
-
-
-<script src='./data.js'></script>
-<script src="./config.sample.js"></script>
-<script src="./index.js"></script>
-
 </body>
 </html>

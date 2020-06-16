@@ -9,17 +9,10 @@ body {
 
 .container {
     height: 70%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    max-width: 500px;
-    width: 80%;
-    transform: translate(-50%, -50%);
 }
 
 #image {
-    width: 250px;
-    height: 250px;
+    width: 20%;
 }
 
 .clothes {
@@ -33,8 +26,8 @@ body {
 }
 
 #minTemp {
-     font-size: 2em;
- }
+    font-size: 2em;
+}
 
 #maxTemp {
     font-size: 2em;
@@ -177,5 +170,38 @@ form:hover .fa {
         transform: scale(1);
     }
 }
+.login_bar {
+    width: 100%;
+    height: 65px;
+    text-align: right;
+}
+.logout {
+    color: white;
+    font-size: 0.85em;
+}
+.memberId {
+    color: white;
+    font-size: 0.85em;
+}
+a {
+    text-decoration:none !important
+}
+a:hover {
+    text-decoration: none !important;
+}
+a:visited{
+    text-decoration: none !important;
+}
+.login_list {
 
+}
+.Wicon {
+    width: 250px;
+    height: 250px;
+}
+
+#rainimage {
+    width: 250px;
+    height: 250px;
+}
 

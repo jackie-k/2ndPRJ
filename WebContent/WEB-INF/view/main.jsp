@@ -24,38 +24,6 @@
    hi
 -->
 <body>
-<button class="navbar-toggler navbar-toggler-right" type="button"
-        data-toggle="collapse" data-target="#navbarResponsive"
-        aria-controls="navbarResponsive" aria-expanded="false"
-        aria-label="Toggle navigation"
-        style="font-family: 'Nanum Brush Script', serif; font-size: 20px;">
-    Menu<i class="fas fa-bars ml-1"></i>
-</button>
-<div class="collapse navbar-collapse" id="navbarResponsive">
-    <ul class="navbar-nav text-uppercase ml-auto">
-        <%
-            if (session.getAttribute("user_name") == null) {
-        %>
-
-
-        <a
-                href="https://kauth.kakao.com/oauth/authorize?client_id=63864be6b254a58d1104f56d171a9285&redirect_uri=http://localhost:8080/kakaologin.do&response_type=code">
-            <img src="/assets/img/kakaologin.png"
-                 style="width: 260px; margin-left: 40px; margin-top: 10px;">
-        </a>
-        <%
-        } else {
-        %>
-        <li class="nav-item"><a class="memberId" href="#user_name">user_name</a></li>
-        <li class="nav-item"><a class="nav-link js-scroll-trigger"
-                                href="/kakaologout.do">LOGOUT</a></li>
-        <%
-            }
-        %>
-    </ul>
-</div>
-
-
 <script type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=92b0e826187e793a3d9af09edc3bcbc7"></script>
 <script type="text/javascript"
@@ -102,7 +70,7 @@
             console.log("total data : " + data);
             console.log("border Data : " + borderData);
 
-            const realData =borderData.items.item;
+            const realData = borderData.items.item;
             console.log("real Data : " + realData);
 
             const tempData = [[], []];
@@ -157,11 +125,17 @@
              if (popData >= 50) {
                  const rainPop = document.getElementById("rainPop");
                  rainPop.innerHTML = "rain";
+
+
              }
 
              else {
                  const rainPop = document.getElementById("rainPop");
                  rainPop.innerHTML = "no rain";
+
+                 const wIcon = document.getElementById("rainimage");
+                 wIcon.src = "/Assets/img/sun.png";
+
              }
 
          });
@@ -171,11 +145,28 @@
 
 </script>
 
-
-
 <div class="container">
-    <div>
-        <img src="/Assets/img/sun.png" id="image"/>
+    <div class="login_bar">
+        <%
+            if (session.getAttribute("user_name") == null) {
+        %>
+
+
+        <a
+                href="https://kauth.kakao.com/oauth/authorize?client_id=63864be6b254a58d1104f56d171a9285&redirect_uri=http://localhost:8080/kakaologin.do&response_type=code">
+            <img src="/Assets/img/kakaologin.png" style="width: 20%">
+        </a>
+        <%
+        } else {
+        %>
+        <div><a class="memberId" href="#user_name"><%=session.getAttribute("user_name")%></a></div>
+        <div><a class="logout" href="/kakaologout.do">LOGOUT</a></div>
+        <%
+            }
+        %>
+    </div>
+    <div style="text-align: -webkit-center;">
+        <div class="Wicon"><img id = "rainimage" src = "/Assets/img/rain.png"/></div>
         <p id="city">서울</p>
         <p><span id='minTemp'>minimum temperature</span><span>℃</span></p>
         <p><span id='maxTemp'>maximum temperature</span><span>℃</span></p>
@@ -188,27 +179,15 @@
         </form>
     </div>
 
-<%--    <div class="btn-group" role="group" aria-label="Basic example">--%>
-<%--        <label for="place"></label><input type="text" autocomplete="off" placeholder="검색어를 입력하세요" class="btn-group2" id="place" style="width: 80%;" name="SearchQuery" required>--%>
-<%--        <button type="submit" class="btn-form"><span class="icon-magnifier search-icon"></span>검색<i class="pe-7s-angle-right"></i></button>--%>
-
-
         <div class="page">
         <button class = "fun-btn" onclick="location.href='http://localhost:8080/recom.do'"> choose today's outfit </button>
     </div>
 
-    <div class="login">
-        <button type="button" class="btn btn-outline-success">Success</button>
-    </div>
+<%--    <div class="login">--%>
+<%--        <button type="button" class="btn btn-outline-success">Success</button>--%>
+<%--    </div>--%>
 
 </div>
-
-
-
-<%--<script src='./data.js'></script>--%>
-<%--<script src="./config.sample.js"></script>--%>
-<%--<script src="index.js"></script>--%>
-
 
 
 </body>
