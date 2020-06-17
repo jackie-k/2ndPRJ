@@ -151,7 +151,6 @@
             if (session.getAttribute("user_name") == null) {
         %>
 
-
         <a
                 href="https://kauth.kakao.com/oauth/authorize?client_id=63864be6b254a58d1104f56d171a9285&redirect_uri=http://localhost:8080/kakaologin.do&response_type=code">
             <img src="/Assets/img/kakaologin.png" style="width: 20%">
