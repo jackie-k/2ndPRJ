@@ -9,7 +9,7 @@
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/> 
          <property name="url" value="jdbc:mysql://127.0.0.1:3306/drawdb?useSSL=false&amp;serverTimezone=Asia/Seoul"/>
         <property name="username" value="root"/> <!-- mysql 계정 --> 
-        <property name="password" value="1234"/> <!-- mysql 패스워드 -->
+        <property name="password" value="epdlxj"/> <!-- mysql 패스워드 -->
     </bean>
     
     

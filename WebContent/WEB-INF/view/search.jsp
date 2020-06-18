@@ -2,8 +2,6 @@
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    String user_id = (String) session.getAttribute("SS_USER_ID");
-    String userAuthor = (String) session.getAttribute("SS_USERAUTHOR");
     MainDTO mDTO = (MainDTO) request.getAttribute("mDTO");
 %>
 <html>
@@ -18,6 +16,7 @@
             integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
             crossorigin="anonymous"
     ></script>
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
     <title>search data</title>
 </head>
 <!--
@@ -111,7 +110,7 @@
                     tmnData = realData[i].fcstValue;
                 }
 
-                else if (realData[i].category === "TMX"){.
+                else if (realData[i].category === "TMX"){
 
                     tmxData = realData[i].fcstValue;
                 }
@@ -134,6 +133,15 @@
                 rainPop.innerHTML = "rain";
             }
 
+            else {
+                const rainPop = document.getElementById("rainPop");
+                rainPop.innerHTML = "no rain";
+
+                const wIcon = document.getElementById("rainimage");
+                wIcon.src = "/Assets/img/sun.png";
+
+            }
+
         });
 
 
@@ -144,12 +152,30 @@
 
 
 <div class="container">
-    <div>
-        <img src="/Assets/img/sun.png" id="image"/>
-        <p id="city"><%=mDTO.getName()%></p>
-        <p><span id='minTemp'>temperature</span><span>℃</span></p>
-        <p><span id='maxTemp'>temperature</span><span>℃</span></p>
-        <p><span id='rainPop'>no rain</span></p>
+    <div class="login_bar">
+        <%
+            if (session.getAttribute("user_name") == null) {
+        %>
+
+        <a
+                href="https://kauth.kakao.com/oauth/authorize?client_id=63864be6b254a58d1104f56d171a9285&redirect_uri=http://localhost:8080/kakaologin.do&response_type=code">
+            <img src="/Assets/img/kakaologin.png" style="width: 20%">
+        </a>
+        <%
+        } else {
+        %>
+        <div><a class="memberId" href="#user_name"><%=session.getAttribute("user_name")%></a></div>
+        <div><a class="logout" href="/kakaologout.do">LOGOUT</a></div>
+        <%
+            }
+        %>
+    </div>
+    <div style="text-align: -webkit-center;">
+        <div class="Wicon"><img id = "rainimage" src = "/Assets/img/rain.png"/></div>
+        <p id="city">서울</p>
+        <p><span id='minTemp'>minimum temperature</span><span>℃</span></p>
+        <p><span id='maxTemp'>maximum temperature</span><span>℃</span></p>
+        <p><span id='rainPop'>rain</span><span>℃</span></p>
     </div>
     <%--    <div>--%>
     <%--        <form id='searchForm'>--%>
@@ -166,7 +192,7 @@
     </div>
 
     <script>
-        var SearchQuery = $("#searchText").val();
+        const SearchQuery = $("#searchText").val();
         console.log("search query : " + SearchQuery);
     </script>
 
@@ -176,14 +202,6 @@
     </div>
 
 </div>
-
-
-
-
-<script src='./data.js'></script>
-<script src="./config.sample.js"></script>
-<script src="index.js"></script>
-
 
 
 </body>
