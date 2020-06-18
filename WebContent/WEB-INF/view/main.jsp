@@ -172,10 +172,17 @@
         <p><span id='rainPop'>rain</span><span>℃</span></p>
     </div>
     <div>
-        <form id='searchForm'>
-            <input type="search" id="searchText">
+        <form id='searchForm' action="search.do">
+            <input type="text" id="searchText" name="SearchQuery">
             <i class="fa fa-search"></i>
         </form>
+
+<%--        <form class="form-wrap mt-4" action="searchlist.do">--%>
+<%--            <div class="btn-group" role="group" aria-label="Basic example">--%>
+<%--                <label for="place"></label><input type="text" autocomplete="off" placeholder="검색어를 입력하세요" class="btn-group2" id="place" style="width: 80%;" name="SearchQuery" required>--%>
+<%--                <button type="submit" class="btn-form"><span class="icon-magnifier search-icon"></span>검색<i class="pe-7s-angle-right"></i></button>--%>
+<%--            </div>--%>
+<%--        </form>--%>
     </div>
 
         <div class="page">

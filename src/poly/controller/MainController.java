@@ -16,4 +16,9 @@ public class MainController {
         return "recom";
     }
 
+    @RequestMapping(value = "search")
+    public String search(){
+        return "search";
+    }
+
 }
