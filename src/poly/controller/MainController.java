@@ -11,6 +11,7 @@ import poly.util.CmmUtil;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -34,7 +35,7 @@ public class MainController {
 
 
     @RequestMapping(value="search")
-    public String search(HttpServletRequest request, Model model) throws Exception {
+    public String search(HttpServletRequest request, Model model, HttpSession session) throws Exception {
         String SearchQuery = CmmUtil.nvl((String) request.getParameter("SearchQuery"));
 
         HashMap<String, String> hMap = new HashMap<String, String>();
@@ -51,11 +52,16 @@ public class MainController {
 
         try {
             mList = mainService.getsearch(hMap);
+            log.info("mlist : " + mList);
         } catch (Exception e) {
             e.printStackTrace();
         }
         if(mList==null){
-            mList = new ArrayList<>();
+            session.invalidate();
+            model.addAttribute("msg", " ex) 충남 -> 충청남도 ");
+            model.addAttribute("url", "/main.do");
+
+            return "/Redirect";
         }else{
             for(int i = 0; i<mList.size();i++){
                 log.info("이름 : "+mList.get(i).getName());

@@ -38,7 +38,6 @@
     <orderEntry type="library" name="jquery-3.5.0" level="application" />
     <orderEntry type="library" name="jquery-3.5.0" level="application" />
     <orderEntry type="library" name="all" level="application" />
-    <orderEntry type="library" name="bootstrap" level="application" />
     <orderEntry type="library" name="kakao" level="application" />
     <orderEntry type="library" name="Maven: org.json:json:20190722" level="project" />
     <orderEntry type="library" name="Maven: com.googlecode.json-simple:json-simple:1.1.1" level="project" />
@@ -81,5 +80,6 @@
     <orderEntry type="library" name="Maven: commons-io:commons-io:2.2" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:jstl:1.2" level="project" />
     <orderEntry type="library" name="kakao" level="application" />
+    <orderEntry type="library" name="jquery" level="application" />
   </component>
 </module>
