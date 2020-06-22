@@ -2,7 +2,7 @@
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    MainDTO mDTO = (MainDTO) request.getAttribute("mDTO");
+    List<MainDTO> mList = (List<MainDTO>) request.getAttribute("mList");
 %>
 <html>
 <head>
@@ -55,8 +55,8 @@
     let curlat;
     let curlng;
 
-    curlat = '<%=mDTO.getX()%>';
-    curlng = '<%=mDTO.getY()%>';
+    curlat = '<%=mList.get(0).getX()%>';
+    curlng = '<%=mList.get(0).getY()%>';
 
 
 
@@ -162,7 +162,7 @@
     </div>
     <div style="text-align: -webkit-center;">
         <div class="Wicon"><img id = "rainimage" src = "/Assets/img/rain.png"/></div>
-        <p id="city">서울</p>
+        <p id="city"><%=mList.get(0).getName()%></p>
         <p><span id='minTemp'>minimum temperature</span><span>℃</span></p>
         <p><span id='maxTemp'>maximum temperature</span><span>℃</span></p>
         <p><span id='rainPop'>rain</span><span>℃</span></p>
@@ -176,7 +176,7 @@
 
     <div>
         <form id='searchForm' action="search.do">
-            <input type="text" id="searchText" autocomplete="off" name = "SearchQuery" required>
+            <input type="text" id="searchText" autocomplete="off" name = "SearchQuery" required style="font-family: Jua !important;">
             <i class="fa fa-search" type="submit"></i>
         </form>
     </div>

@@ -4,6 +4,6 @@
 <configuration>
     <typeAliases>
     	<!-- 사용할 DTO 등록  -->
-		<!--<typeAlias type="poly.dto.NoticeDTO" alias="NoticeDTO"/>-->
+		<typeAlias type="poly.dto.MainDTO" alias="MainDTO"/>
     </typeAliases>
 </configuration>

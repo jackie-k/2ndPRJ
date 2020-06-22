@@ -10,7 +10,7 @@
     <title>recommendation</title>
 </head>
 <body>
-<div class="container">
+<div class="recomContainer">
     <div style="display: inline-flex;">
         <img src="/Assets/img/clothes/tshirt.jpg" class="clothes"/>
         <img src="/Assets/img/clothes/pants.jpg" class="clothes"/>

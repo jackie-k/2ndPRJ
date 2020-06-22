@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- JAVA와 연결할 Mapper 파일 설정 -->
+<mapper namespace="poly.persistance.mapper.MainMapper">
+
+    <select id = "getsearch" parameterType = "map" resultType = "MainDTO">
+        SELECT
+            NAME AS name,
+            X AS x,
+            Y AS y
+        FROM
+            COORDINATE
+        WHERE
+            NAME LIKE CONCAT ('%',#{SearchQuery},'%')
+
+    </select>
+
+
+</mapper>

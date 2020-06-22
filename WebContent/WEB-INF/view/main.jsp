@@ -173,7 +173,7 @@
     </div>
     <div>
         <form id='searchForm' action="search.do">
-            <input type="text" id="searchText" autocomplete="off" name = "SearchQuery" required>
+            <input type="text" id="searchText" autocomplete="off" name = "SearchQuery" required style="font-family: Jua !important;">
             <i class="fa fa-search" type="submit"></i>
         </form>
     </div>
@@ -182,6 +182,8 @@
         const SearchQuery = $("#searchText").val();
         console.log("search query : " + SearchQuery);
     </script>
+
+<%--    검색결과가 없을 경우 alert 창으로 알림띄우기--%>
 
         <div class="page">
         <button class = "fun-btn" onclick="location.href='http://localhost:8080/recom.do'"> choose today's outfit </button>
