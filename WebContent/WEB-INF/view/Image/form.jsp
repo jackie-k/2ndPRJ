@@ -9,10 +9,10 @@
 <fieldset>
     <legend>파일 업로드</legend>
     <table>
-        <form action="UploadService" method="post" enctype="multipart/form-data">
+        <form action="upload.do" method="post" enctype="multipart/form-data">
             <tr>
                 <td>file : </td>
-                <td><input type="file" value="파일 선택" name="file"/></td>
+                <td><input type="file" value="파일 선택" name="file1"/></td>
             </tr>
             <tr>
                 <td colspan="2"><input type="submit" value="업로드"/></td>

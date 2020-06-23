@@ -61,16 +61,16 @@ public class MainController {
             model.addAttribute("msg", " ex) 충남 -> 충청남도 ");
             model.addAttribute("url", "/main.do");
 
-            return "/Redirect";
         }else{
             for(int i = 0; i<mList.size();i++){
                 log.info("이름 : "+mList.get(i).getName());
                 log.info("X : "+mList.get(i).getX());
                 log.info("Y : "+mList.get(i).getY());
 
+                model.addAttribute("mList",mList);
             }
         }
-        model.addAttribute("mList",mList);
+
 
 
 

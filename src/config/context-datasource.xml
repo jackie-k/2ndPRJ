@@ -7,10 +7,17 @@
 	<!-- MySQL dataSource -->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/> 
-         <property name="url" value="jdbc:mysql://127.0.0.1:3306/testdb?useSSL=false&amp;serverTimezone=Asia/Seoul"/>
+         <property name="url" value="jdbc:mysql://127.0.0.1:3306/mydb?useSSL=false&amp;serverTimezone=Asia/Seoul&amp;allowPublicKeyRetrieval=true"/>
         <property name="username" value="root"/> <!-- mysql 계정 --> 
-        <property name="password" value="epdlxj"/> <!-- mysql 패스워드 -->
+        <property name="password" value=""/> <!-- mysql 패스워드 -->
     </bean>
+
+<!--    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
+<!--        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>-->
+<!--        <property name="url" value="jdbc:mysql://127.0.0.1:3306/testdb?useSSL=false&amp;serverTimezone=Asia/Seoul"/>-->
+<!--        <property name="username" value="root"/> &lt;!&ndash; mysql 계정 &ndash;&gt;-->
+<!--        <property name="password" value="epdlxj"/> &lt;!&ndash; mysql 패스워드 &ndash;&gt;-->
+<!--    </bean>-->
     
     
 </beans>

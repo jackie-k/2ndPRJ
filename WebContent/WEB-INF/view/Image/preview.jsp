@@ -15,7 +15,7 @@
 <hr>
 
 
-<form action="picAdd.jsp" method="post" enctype="multipart/form-data">
+<form action="form.jsp" method="post" enctype="multipart/form-data">
     이름 : <input type="text" name="name"><br>
     제목 : <input type="text" name="subject"><br>
     이미지 : <input type="file" name="uploadfile" onchange="readURL(this);"><br>
