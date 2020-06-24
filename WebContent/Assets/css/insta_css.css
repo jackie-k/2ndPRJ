@@ -66,6 +66,7 @@ body {
 }
 
 .pName {
+    font-size: 1rem;
     margin-bottom: 20px;
     -webkit-box-align: center;
     -webkit-align-items: center;
@@ -83,6 +84,7 @@ body {
 }
 
 .pMail {
+    font-size: 1rem;
     margin-bottom: 20px;
     display: -webkit-box;
     display: -webkit-flex;
@@ -125,8 +127,6 @@ body {
     width: 950px;
     min-height: 50%;
     display: flex;
-    place-content: center;
-    break-after: auto;
 }
 
 .singlePic{

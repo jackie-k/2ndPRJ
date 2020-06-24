@@ -155,7 +155,7 @@
         <%
         } else {
         %>
-        <div><a class="memberId" href="#user_name"><%=session.getAttribute("user_name")%></a></div>
+        <div><a class="memberId" href="/myPage.do"><%=session.getAttribute("user_name")%></a></div>
         <div><a class="logout" href="/kakaologout.do">LOGOUT</a></div>
         <%
             }
