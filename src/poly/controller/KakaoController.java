@@ -15,6 +15,7 @@ import java.util.HashMap;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import java.io.File;
 
 @Controller
 public class KakaoController {
@@ -71,6 +72,22 @@ public class KakaoController {
                 System.out.println(mDTO.getName()+"/"+mDTO.getEmail());
                 int b = mainService.userdup(mDTO);
                 System.out.println(b);
+
+                String path = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\"+name;
+                File Folder = new File(path);
+
+                if (!Folder.exists()) {
+                    try{
+                        Folder.mkdir();
+                        System.out.println("폴더가 생성되었습니다.");
+                    }
+                    catch (Exception e) {
+                        e.getStackTrace();
+                    }
+                } else {
+                    System.out.println("이미 폴더가 생성되어 있습니다.");
+                }
+
             }
 
             model.addAttribute("msg", "로그인 되었습니다!  \"" + session.getAttribute("user_name") + "\"님 환영합니다.");
