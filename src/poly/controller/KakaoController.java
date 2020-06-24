@@ -1,5 +1,7 @@
 package poly.controller;
 
+import poly.dto.MainDTO;
+import poly.service.IMainService;
 import poly.service.impl.KakaoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.HashMap;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -18,6 +21,9 @@ public class KakaoController {
 
     @Autowired
     private KakaoService kakao;
+
+    @Resource(name = "MainService")
+    private IMainService mainService;
 
     @RequestMapping(value="/")
     public String main() throws Exception{
@@ -54,6 +60,18 @@ public class KakaoController {
             System.out.println("user_profile_image : " + session.getAttribute("user_profile_image"));
             System.out.println(this.getClass().getName() + ".kakao login end!");
 
+            String name =(String)session.getAttribute("user_name");
+            String email =(String)session.getAttribute("user_mail");
+            MainDTO mDTO = new MainDTO();
+            mDTO.setName(name);
+            mDTO.setEmail(email);
+            int a = mainService.usercheck(name);
+            System.out.println(a);
+            if (a==0) {
+                System.out.println(mDTO.getName()+"/"+mDTO.getEmail());
+                int b = mainService.userdup(mDTO);
+                System.out.println(b);
+            }
 
             model.addAttribute("msg", "로그인 되었습니다!  \"" + session.getAttribute("user_name") + "\"님 환영합니다.");
             model.addAttribute("url", "/main.do");

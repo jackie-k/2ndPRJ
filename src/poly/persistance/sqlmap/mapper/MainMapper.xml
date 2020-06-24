@@ -15,5 +15,26 @@
 
     </select>
 
+    <select id = "usercheck" parameterType ="String" resultType="Integer">
+        SELECT
+            COUNT(*)
+            FROM
+                USER_INFO
+            WHERE
+                USER_NAME = #{name}
+
+    </select>
+
+    <insert id = "userdup" parameterType = "MainDTO">
+        INSERT INTO
+            USER_INFO(
+                USER_NAME, USER_EMAIL
+            )
+            VALUES(
+                #{name}, #{email}
+            )
+
+    </insert>
+
 
 </mapper>

@@ -42,7 +42,35 @@
 
     </div>
     <div>
-        <button onclick="location.href='http://localhost:8080/form.do'"> + </button>
+        <!-- 파일 업로드 버튼 -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#fileupload">
+            파일업로드
+        </button>
+
+        <!-- 파일 업로드 창 -->
+        <div class="modal fade" id="fileupload" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <form action="upload.do" method="post" enctype="multipart/form-data">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">파일업로드</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                            <div>
+                                <div><input type="file" value="파일 선택" name="file1"/></div>
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                        <button type="submit" class="btn btn-primary">업로드</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
     <hr width = "910px" size = "0.5" style="color: grey;">

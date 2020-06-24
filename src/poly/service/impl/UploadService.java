@@ -20,7 +20,7 @@ public class UploadService {
 //        private static final String SAVE_PATH = "/Users/data16/Desktop/2ndPRJ-master/WebContent/fileFolder";
 //        private static final String PREFIX_URL = "/Users/data16/Desktop/2ndPRJ-master/WebContent/fileFolder";
 
-        private static final String SAVE_PATH = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\fileFolder";
+        private static  String SAVE_PATH = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\";
         private static final String PREFIX_URL = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\fileFolder";
 
 
@@ -77,9 +77,9 @@ public class UploadService {
         private boolean writeFile(MultipartFile multipartFile, String saveFileName)
                 throws IOException{
             boolean result = false;
-
+            String user="kingyoo";
             byte[] data = multipartFile.getBytes();
-            FileOutputStream fos = new FileOutputStream(SAVE_PATH + "/" + saveFileName);
+            FileOutputStream fos = new FileOutputStream(SAVE_PATH +"/"+user+ "/" + saveFileName);
             fos.write(data);
             fos.close();
 

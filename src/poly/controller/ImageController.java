@@ -28,10 +28,16 @@ public class ImageController {
     public String upload(
             Model model,
             @RequestParam("file1") MultipartFile file) {
-
-        String url = UploadService.restore(file);
-        model.addAttribute("url", url);
-        return "/Image/result";
+        String msg;
+        if (file==null)
+            msg="업로드 실패";
+        else
+            msg="업로드 성공";
+            model.addAttribute("msg",msg);
+            model.addAttribute("url","myPage.do");
+            String a=UploadService.restore(file);
+            log.info(a);
+        return "Redirect";
     }
 }
 

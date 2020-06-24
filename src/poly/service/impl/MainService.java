@@ -22,4 +22,14 @@ public class MainService implements IMainService {
 
         return mainMapper.getsearch(hMap);
     }
+
+    @Override
+    public int usercheck(String name) throws Exception {
+        return mainMapper.usercheck(name);
+    }
+
+    @Override
+    public int userdup(MainDTO mDTO) throws Exception {
+        return mainMapper.userdup(mDTO);
+    }
 }

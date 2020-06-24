@@ -7,4 +7,8 @@ import java.util.List;
 
 public interface IMainService {
     List<MainDTO> getsearch(HashMap<String, String> hMap) throws Exception;
+
+    int usercheck(String name) throws Exception;
+
+    int userdup(MainDTO mDTO) throws Exception;
 }
