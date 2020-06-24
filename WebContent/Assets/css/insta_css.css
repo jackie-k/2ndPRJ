@@ -129,10 +129,11 @@ body {
 
 .singlePic{
     overflow: hidden;
-    dlsplay: flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    width: 30%;
+    width: 300px;
+    height: 300px;
     border: 15px solid white;
 
 }

@@ -43,28 +43,9 @@
         <button onclick="location.href='http://localhost:8080/form.do'"> add to closet </button>
     </div>
 
-    <hr width = "90%" size = "0.5" style="color: slategrey;">
+    <hr width = "910px" size = "0.5" style="color: grey;">
 
     <div class = "imageList">
-        <script src = "//code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script>
-            // $(document).ready(function(){
-            //     const imgWidth = $('div.singlePic').width();
-            //     console.log("imgWidth : " + imgWidth);
-            //     const imgList = document.getElementsByClassName("singlePic");
-            //     imgList.style.height = imgWidth;
-            //
-            //
-            //
-            //     for(const item of imgList) {
-            //         item.height = item.getElementsByClassName('singlePic')[0].width;
-            //         console.log("이미지 바꿈!");
-            //     }
-            // })
-
-            $('div.singlePic').style.height = $('div.singlePic').width();
-
-        </script>
         <div class = "singlePic">
             <img class = "instaPic" src="/fileFolder/20205249122236.jpg">
         </div>
