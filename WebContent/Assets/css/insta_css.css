@@ -123,27 +123,22 @@ body {
 
 .imageList {
     min-height: 50%;
-    max-width: 80%;
-    -webkit-box-align: stretch;
-    -webkit-align-items: stretch;
-    -ms-flex-align: stretch;
-    align-items: stretch;
-    border: 0 solid #000;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-flex-shrink: 0;
-    -ms-flex-negative: 0;
-    flex-shrink: 0;
-    margin: 0;
-    padding: 0;
-    position: relative;
+    place-content: center;
 }
+
+.singlePic{
+    overflow: hidden;
+    dlsplay: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    border: 15px solid white;
+
+}
+
+.instaPic {
+    width: 100%;
+
+}
+

@@ -1,11 +1,9 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: data16
-  Date: 2020/06/23
-  Time: 4:23 오후
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="poly.util.CmmUtil" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String url = CmmUtil.nvl((String)request.getAttribute("url"));
+    System.out.println("url : " + url);
+%>
 <html>
 <head>
     <title>Title</title>
@@ -17,7 +15,7 @@
 
 <div class="result-images">
 
-    <img src="${pageContext.request.contextPath }${url }" style="width:150px">
+    <img src="/fileFolder/202052491345210.jpg" style="width:150px">
 
 </div>
 

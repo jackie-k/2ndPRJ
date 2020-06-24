@@ -17,10 +17,14 @@ public class UploadService {
         // 리눅스 기준으로 파일 경로를 작성 ( 루트 경로인 /으로 시작한다. )
         // 윈도우라면 workspace의 드라이브를 파악하여 JVM이 알아서 처리해준다.
         // 따라서 workspace가 C드라이브에 있다면 C드라이브에 upload 폴더를 생성해 놓아야 한다.
-        private static final String SAVE_PATH = "/Users/data16/Desktop/2ndPRJ-master/WebContent/fileFolder";
-        private static final String PREFIX_URL = "/Users/data16/Desktop/2ndPRJ-master/WebContent/fileFolder";
+//        private static final String SAVE_PATH = "/Users/data16/Desktop/2ndPRJ-master/WebContent/fileFolder";
+//        private static final String PREFIX_URL = "/Users/data16/Desktop/2ndPRJ-master/WebContent/fileFolder";
 
-        public String restore(MultipartFile multipartFile) {
+        private static final String SAVE_PATH = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\fileFolder";
+        private static final String PREFIX_URL = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\fileFolder";
+
+
+            public String restore(MultipartFile multipartFile) {
             String url = null;
 
             try {
@@ -39,7 +43,7 @@ public class UploadService {
                 System.out.println("saveFileName : " + saveFileName);
 
                 writeFile(multipartFile, saveFileName);
-                url = PREFIX_URL + saveFileName;
+                url = "/fileFolder/" + saveFileName;
             }
             catch (IOException e) {
                 // 원래라면 RuntimeException 을 상속받은 예외가 처리되어야 하지만

@@ -56,10 +56,11 @@ public class MainController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if(mList==null){
-            session.invalidate();
+        if(mList.size()<1){
             model.addAttribute("msg", " ex) 충남 -> 충청남도 ");
             model.addAttribute("url", "/main.do");
+
+            return "/Redirect";
 
         }else{
             for(int i = 0; i<mList.size();i++){

@@ -71,7 +71,7 @@
 
             const tempData = [[], []];
 
-            const popData = [];
+            let popData = 0;
 
             let tmnData;
 
@@ -81,19 +81,19 @@
                 if(realData.fcstDate === wantedDate + 2){
                     break;
                 }
-                console.log("i :" + i);
-                console.log(realData[i].category);
-                console.log(realData[i].fcstValue);
+                // console.log("i :" + i);
+                // console.log(realData[i].category);
+                // console.log(realData[i].fcstValue);
 
                 tempData[0][i] = realData[i].category;
                 //console.log("tempData [0] [" + i + "] : " + tempData[0][i]);
                 tempData[1][i] = realData[i].fcstValue;
                 //console.log("tempData [1] [" + i + "] : " + tempData[1][i]);
 
-                console.log("tempData " + i + " : " + tempData[0][i] + " , " + tempData[1][i]);
+                // console.log("tempData " + i + " : " + tempData[0][i] + " , " + tempData[1][i]);
 
                 if (realData[i].category === "POP"){
-                    popData.push(realData[i].fcstValue);
+                    popData += realData[i].fcstValue;
                 }
 
                 else if (realData[i].category === "TMN"){
@@ -106,8 +106,8 @@
                 }
 
                 console.log("popData : " + popData);
-                console.log("tmnData : " + tmnData);
-                console.log("tmxData : " + tmxData);
+                // console.log("tmnData : " + tmnData);
+                // console.log("tmxData : " + tmxData);
 
 
             }
@@ -118,7 +118,8 @@
             const maxTemp = document.getElementById("maxTemp");
             maxTemp.innerHTML = "max temp : " + tmxData;
 
-            if (popData >= 50) {
+            if (popData/16 >= 50) {
+                console.log("강수 : " + popData/16)
                 const rainPop = document.getElementById("rainPop");
                 rainPop.innerHTML = "rain";
             }
@@ -165,7 +166,7 @@
         <p id="city"><%=mList.get(0).getName()%></p>
         <p><span id='minTemp'>minimum temperature</span><span>℃</span></p>
         <p><span id='maxTemp'>maximum temperature</span><span>℃</span></p>
-        <p><span id='rainPop'>rain</span><span>℃</span></p>
+        <p><span id='rainPop'>rain</span></p>
     </div>
     <%--    <div>--%>
     <%--        <form id='searchForm'>--%>

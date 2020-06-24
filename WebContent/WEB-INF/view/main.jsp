@@ -75,7 +75,7 @@
 
             const tempData = [[], []];
 
-            const popData = [];
+            let popData = [];
 
             let tmnData;
 
@@ -97,7 +97,7 @@
                 //console.log("tempData " + i + " : " + tempData[0][i] + " , " + tempData[1][i]);
 
                 if (realData[i].category === "POP"){
-                    popData.push(realData[i].fcstValue);
+                    popData += realData[i].fcstValue;
                 }
 
                 else if (realData[i].category === "TMN"){
@@ -169,7 +169,7 @@
         <p id="city">서울</p>
         <p><span id='minTemp'>minimum temperature</span><span>℃</span></p>
         <p><span id='maxTemp'>maximum temperature</span><span>℃</span></p>
-        <p><span id='rainPop'>rain</span><span>℃</span></p>
+        <p><span id='rainPop'>rain</span></p>
     </div>
     <div>
         <form id='searchForm' action="search.do">
