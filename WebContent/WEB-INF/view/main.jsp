@@ -75,7 +75,7 @@
 
             const tempData = [[], []];
 
-            let popData = [];
+            let popData = 0;
 
             let tmnData;
 
@@ -97,7 +97,9 @@
                 //console.log("tempData " + i + " : " + tempData[0][i] + " , " + tempData[1][i]);
 
                 if (realData[i].category === "POP"){
-                    popData += realData[i].fcstValue;
+                    popData = popData + Number(realData[i].fcstValue);
+
+                    console.log(popData);
                 }
 
                 else if (realData[i].category === "TMN"){
@@ -122,10 +124,11 @@
              const maxTemp = document.getElementById("maxTemp");
              maxTemp.innerHTML = "max temp : " + tmxData;
 
-             if (popData >= 50) {
+             console.log("강수 : " + popData/16);
+
+             if (popData/16 >= 50) {
                  const rainPop = document.getElementById("rainPop");
                  rainPop.innerHTML = "rain";
-
 
              }
 

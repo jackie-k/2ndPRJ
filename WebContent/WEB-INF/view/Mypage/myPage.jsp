@@ -55,6 +55,12 @@
         <div class = "singlePic">
             <img class = "instaPic" src="/fileFolder/202052491531208.jpg">
         </div>
+        <div class = "singlePic">
+            <img class = "instaPic" src="/fileFolder/202052491531208.jpg">
+        </div>
+        <div class = "singlePic">
+            <img class = "instaPic" src="/fileFolder/202052491531208.jpg">
+        </div>
 
     </div>
 

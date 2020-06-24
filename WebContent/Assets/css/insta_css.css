@@ -122,9 +122,11 @@ body {
 }
 
 .imageList {
+    width: 950px;
     min-height: 50%;
     display: flex;
     place-content: center;
+    break-after: auto;
 }
 
 .singlePic{

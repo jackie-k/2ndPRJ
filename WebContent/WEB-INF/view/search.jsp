@@ -93,7 +93,7 @@
                 // console.log("tempData " + i + " : " + tempData[0][i] + " , " + tempData[1][i]);
 
                 if (realData[i].category === "POP"){
-                    popData += realData[i].fcstValue;
+                    popData = popData + Number(realData[i].fcstValue);
                 }
 
                 else if (realData[i].category === "TMN"){
