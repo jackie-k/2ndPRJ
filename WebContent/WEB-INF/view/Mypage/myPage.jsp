@@ -3,6 +3,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     List<MainDTO> mList = (List<MainDTO>) request.getAttribute("mList");
+    List<MainDTO> iList = (List<MainDTO>) request.getAttribute("iList");
 %>
 <html>
 <head>
@@ -63,6 +64,25 @@
                                 <div><input type="file" value="파일 선택" name="file1"/></div>
                             </div>
                     </div>
+                        <label class="radio-inline" style="color: black; font-size: 18px; font-weight: bold;">
+                            <input type="radio" name="type" id="shortSleeve" value="01" checked> 반팔
+                        </label>
+                        <label class="radio-inline" style="color: black; font-size: 18px; font-weight: bold;">
+                            <input type="radio" name="type" id="longSleeve" value="02"> 긴팔
+                        </label>
+                        <label class="radio-inline" style="color: black; font-size: 18px; font-weight: bold;">
+                            <input type="radio" name="type" id="shortPants" value="03"> 반바지
+                        </label>
+                        <label class="radio-inline" style="color: black; font-size: 18px; font-weight: bold;">
+                            <input type="radio" name="type" id="longPants" value="04"> 긴바지
+                        </label>
+                        <label class="radio-inline" style="color: black; font-size: 18px; font-weight: bold;">
+                            <input type="radio" name="type" id="thinOuter" value="05"> 얇은 겉옷
+                        </label>
+                        <label class="radio-inline" style="color: black; font-size: 18px; font-weight: bold;">
+                            <input type="radio" name="type" id="thickOuter" value="06"> 두꺼운 겉옷
+                        </label>
+
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
                         <button type="submit" class="btn btn-primary">업로드</button>
@@ -76,21 +96,12 @@
     <hr width = "910px" size = "0.5" style="color: grey;">
 
     <div class = "imageList row">
+        <%for(int i = 0 ; i <iList.size(); i++) { %>
+
         <div class = "singlePic col-md-4">
-            <img class = "instaPic" src="/fileFolder/20205249122236.jpg">
+            <img class = "instaPic" src="/<%=iList.get(i).getSeq()%>/<%=iList.get(i).getFile_name()%>">
         </div>
-        <div class = "singlePic col-md-4">
-            <img class = "instaPic" src="/fileFolder/20205249136504.jpg">
-        </div>
-        <div class = "singlePic col-md-4">
-            <img class = "instaPic" src="/fileFolder/202052491531208.jpg">
-        </div>
-        <div class = "singlePic col-md-4">
-            <img class = "instaPic" src="/fileFolder/202052491531208.jpg">
-        </div>
-        <div class = "singlePic col-md-4">
-            <img class = "instaPic" src="/fileFolder/202052491531208.jpg">
-        </div>
+    <% } %>
 
     </div>
 

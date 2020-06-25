@@ -11,15 +11,18 @@
 </head>
 <body>
 <div class="recomContainer">
+    <div>
     <div style="display: inline-flex;">
         <img src="/Assets/img/clothes/tshirt.jpg" class="clothes"/>
         <img src="/Assets/img/clothes/pants.jpg" class="clothes"/>
     </div>
 
+
     <div class="page">
 
         <button class = "fun-btn"> reload </button>
 
+    </div>
     </div>
 </div>
 

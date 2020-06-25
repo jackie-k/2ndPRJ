@@ -15,14 +15,13 @@
 
     </select>
 
-    <select id = "usercheck" parameterType ="String" resultType="Integer">
+    <select id = "usercheck" parameterType ="MainDTO" resultType="String">
         SELECT
             COUNT(*)
             FROM
                 USER_INFO
             WHERE
-                USER_NAME = #{name}
-
+                USER_EMAIL = #{email}
     </select>
 
     <insert id = "userdup" parameterType = "MainDTO">
@@ -35,6 +34,36 @@
             )
 
     </insert>
+
+    <select id = "seqcheck" parameterType = "String" resultType="MainDTO">
+        SELECT
+            USER_SEQ AS seq
+        FROM
+            USER_INFO
+        WHERE
+            USER_EMAIL = #{email}
+    </select>
+
+    <insert id = "insertFileInfo" parameterType = "MainDTO">
+        INSERT INTO
+            C_INFO(
+                CATEGORY, FILE_NAME, USER_SEQ
+            )
+            VALUES(
+                #{category}, #{file_name}, #{seq}
+            )
+
+    </insert>
+
+    <select id = "getMyPage" resultType="MainDTO" parameterType="String">
+        SELECT
+            FILE_NAME AS file_name,
+            USER_SEQ AS seq
+        FROM
+            C_INFO
+        WHERE
+            USER_SEQ = #{user_seq}
+    </select>
 
 
 </mapper>

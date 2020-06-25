@@ -24,12 +24,23 @@ public class MainService implements IMainService {
     }
 
     @Override
-    public int usercheck(String name) throws Exception {
-        return mainMapper.usercheck(name);
+    public String usercheck(MainDTO mDTO) throws Exception {
+        log.info("-------------------------------------------------------------");
+        return mainMapper.usercheck(mDTO);
     }
 
     @Override
     public int userdup(MainDTO mDTO) throws Exception {
         return mainMapper.userdup(mDTO);
+    }
+
+    @Override
+    public MainDTO seqcheck(String email) throws Exception {
+        return mainMapper.seqcheck(email);
+    }
+
+    @Override
+    public MainDTO category(String category) throws Exception {
+        return mainMapper.category(category);
     }
 }

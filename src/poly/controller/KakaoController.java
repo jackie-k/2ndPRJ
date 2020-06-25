@@ -10,6 +10,7 @@ import org.springframework.ui.ModelMap;
 /*import org.springframework.web.bind.annotation.GetMapping;*/
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import poly.service.impl.UploadService;
 
 import java.util.HashMap;
 
@@ -25,6 +26,9 @@ public class KakaoController {
 
     @Resource(name = "MainService")
     private IMainService mainService;
+
+    @Resource(name = "UploadService")
+    private UploadService uploadService;
 
     @RequestMapping(value="/")
     public String main() throws Exception{
@@ -66,27 +70,13 @@ public class KakaoController {
             MainDTO mDTO = new MainDTO();
             mDTO.setName(name);
             mDTO.setEmail(email);
-            int a = mainService.usercheck(name);
+            String a = mainService.usercheck(mDTO);
             System.out.println(a);
-            if (a==0) {
-                System.out.println(mDTO.getName()+"/"+mDTO.getEmail());
+            if (a.equals("0")) {
                 int b = mainService.userdup(mDTO);
+                System.out.println(mDTO.getName()+"/"+mDTO.getEmail());
+
                 System.out.println(b);
-
-                String path = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\"+name;
-                File Folder = new File(path);
-
-                if (!Folder.exists()) {
-                    try{
-                        Folder.mkdir();
-                        System.out.println("폴더가 생성되었습니다.");
-                    }
-                    catch (Exception e) {
-                        e.getStackTrace();
-                    }
-                } else {
-                    System.out.println("이미 폴더가 생성되어 있습니다.");
-                }
 
             }
 
