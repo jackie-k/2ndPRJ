@@ -15,6 +15,12 @@
 
     <title>Title</title>
 </head>
+<!-- jQuery load -->
+<script
+        src="https://code.jquery.com/jquery-3.5.0.js"
+        integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
+        crossorigin="anonymous"
+></script>
 <body>
 
 <div class = "big">
@@ -42,6 +48,7 @@
         </div>
 
     </div>
+    <div><a class="backhome" href="/main.do">홈으로</a></div>
     <div>
         <!-- 파일 업로드 버튼 -->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#fileupload">
@@ -98,7 +105,7 @@
     <div class = "imageList row">
         <%for(int i = 0 ; i <iList.size(); i++) { %>
 
-        <div class = "singlePic col-md-4">
+        <div class = "singlePic col-md-4" id="DI<%=i%>">
             <img class = "instaPic" src="/<%=iList.get(i).getSeq()%>/<%=iList.get(i).getFile_name()%>">
         </div>
     <% } %>
@@ -107,10 +114,33 @@
 
 
 </div>
+<script>
+    <%for(int i = 0 ; i <iList.size(); i++) { %>
+    $('#DI<%=i%>').click(function () {
+       if (confirm('이미지를 삭제하시겠습니까?')){
+           $.ajax({
+               url: "/DelImg.do",
+               type : 'POST',
+               data : {
+                   "seq" : '<%=iList.get(i).getSeq()%>',
+                   "img" : '<%=iList.get(i).getFile_name()%>'
+               },success : function (data) {
+                   console.log(data)
+                   if (data==="0"){
+                       alert('이미지가 삭제되었습니다.')
 
+                   }
+               }
+           });
+            alert('삭제가되었어요')
+           window.location.reload(true);
+       }
+    })
+    <%}%>
+</script>
 </body>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 

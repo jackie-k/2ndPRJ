@@ -43,4 +43,14 @@ public class MainService implements IMainService {
     public MainDTO category(String category) throws Exception {
         return mainMapper.category(category);
     }
+
+    @Override
+    public String delimg(String file_name) throws Exception {
+        return mainMapper.delimg(file_name);
+    }
+
+    @Override
+    public List<MainDTO> getimg(MainDTO mDTO) throws Exception {
+        return mainMapper.getimg(mDTO);
+    }
 }

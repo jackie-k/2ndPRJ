@@ -15,4 +15,8 @@ public interface IMainService {
     MainDTO seqcheck(String email) throws Exception;
 
     MainDTO category(String type) throws Exception;
+
+    String delimg(String file_name) throws Exception;
+
+    List<MainDTO> getimg(MainDTO mDTO) throws Exception;
 }

@@ -1,7 +1,9 @@
 package poly.controller;
 
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import poly.dto.MainDTO;
 import poly.service.IMainService;
@@ -16,11 +18,8 @@ import poly.util.CmmUtil;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.List;
+import java.io.*;
+import java.util.*;
 
 @Controller
 public class ImageController {
@@ -104,6 +103,254 @@ public class ImageController {
                 System.out.println("size : " + size);
                 System.out.println("saveFileName : " + fileName);
 
+                String path = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\" + user_seq; //폴더 경로
+                File Folder = new File(path);
+
+                // 해당 디렉토리가 없을경우 디렉토리를 생성합니다.
+                if (!Folder.exists()) {
+                    try{
+                        Folder.mkdir(); //폴더 생성합니다.
+                        System.out.println("폴더가 생성되었습니다.");
+
+
+                    }
+                    catch(Exception e){
+                        e.getStackTrace();
+                    }
+
+                    //원본 파일경로
+                    String orilogoFilePath = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\Assets\\img\\logoimg0.jpg";
+                    //복사될 파일경로
+                    String copylogoFilePath = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\" + user_seq + "\\logoimg0.jpg";
+
+                    //파일객체생성
+                    File orilogoFile = new File(orilogoFilePath);
+                    //복사파일객체생성
+                    File copylogoFile = new File(copylogoFilePath);
+
+                    try {
+
+                        FileInputStream fis = new FileInputStream(orilogoFile); //읽을파일
+                        FileOutputStream fos = new FileOutputStream(copylogoFile); //복사할파일
+
+                        int fileByte = 0;
+                        // fis.read()가 -1 이면 파일을 다 읽은것
+                        while((fileByte = fis.read()) != -1) {
+                            fos.write(fileByte);
+                        }
+                        //자원사용종료
+                        fis.close();
+                        fos.close();
+
+                    } catch (FileNotFoundException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                    //원본 파일경로
+                    String orishortsleeveFilePath = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\Assets\\img\\logoimg1.jpg";
+                    //복사될 파일경로
+                    String copyshortsleeveFilePath = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\" + user_seq + "\\logoimg1.jpg";
+
+                    //파일객체생성
+                    File orishortsleeveFile = new File(orishortsleeveFilePath);
+                    //복사파일객체생성
+                    File copyshortsleeveFile = new File(copyshortsleeveFilePath);
+
+                    try {
+
+                        FileInputStream fis = new FileInputStream(orishortsleeveFile); //읽을파일
+                        FileOutputStream fos = new FileOutputStream(copyshortsleeveFile); //복사할파일
+
+                        int fileByte = 0;
+                        // fis.read()가 -1 이면 파일을 다 읽은것
+                        while((fileByte = fis.read()) != -1) {
+                            fos.write(fileByte);
+                        }
+                        //자원사용종료
+                        fis.close();
+                        fos.close();
+
+                    } catch (FileNotFoundException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+
+                    //원본 파일경로
+                    String orilongsleeveFilePath = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\Assets\\img\\logoimg2.jpg";
+                    //복사될 파일경로
+                    String copylongsleeveFilePath = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\" + user_seq + "\\logoimg2.jpg";
+
+                    //파일객체생성
+                    File orilongsleeveFile = new File(orilongsleeveFilePath);
+                    //복사파일객체생성
+                    File copylongsleeveFile = new File(copylongsleeveFilePath);
+
+                    try {
+
+                        FileInputStream fis = new FileInputStream(orilongsleeveFile); //읽을파일
+                        FileOutputStream fos = new FileOutputStream(copylongsleeveFile); //복사할파일
+
+                        int fileByte = 0;
+                        // fis.read()가 -1 이면 파일을 다 읽은것
+                        while((fileByte = fis.read()) != -1) {
+                            fos.write(fileByte);
+                        }
+                        //자원사용종료
+                        fis.close();
+                        fos.close();
+
+                    } catch (FileNotFoundException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+
+                    //원본 파일경로
+                    String orishortpantsFilePath = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\Assets\\img\\logoimg3.jpg";
+                    //복사될 파일경로
+                    String copyshortpantsFilePath = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\" + user_seq + "\\logoimg3.jpg";
+
+                    //파일객체생성
+                    File orishortpantsFile = new File(orishortpantsFilePath);
+                    //복사파일객체생성
+                    File copyshortpantsFile = new File(copyshortpantsFilePath);
+
+                    try {
+
+                        FileInputStream fis = new FileInputStream(orishortpantsFile); //읽을파일
+                        FileOutputStream fos = new FileOutputStream(copyshortpantsFile); //복사할파일
+
+                        int fileByte = 0;
+                        // fis.read()가 -1 이면 파일을 다 읽은것
+                        while((fileByte = fis.read()) != -1) {
+                            fos.write(fileByte);
+                        }
+                        //자원사용종료
+                        fis.close();
+                        fos.close();
+
+                    } catch (FileNotFoundException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+
+                    //원본 파일경로
+                    String orilongpantsFilePath = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\Assets\\img\\logoimg4.jpg";
+                    //복사될 파일경로
+                    String copylongpantsFilePath = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\" + user_seq + "\\logoimg4.jpg";
+
+                    //파일객체생성
+                    File orilongpantsFile = new File(orilongpantsFilePath);
+                    //복사파일객체생성
+                    File copylongpantsFile = new File(copylongpantsFilePath);
+
+                    try {
+
+                        FileInputStream fis = new FileInputStream(orilongpantsFile); //읽을파일
+                        FileOutputStream fos = new FileOutputStream(copylongpantsFile); //복사할파일
+
+                        int fileByte = 0;
+                        // fis.read()가 -1 이면 파일을 다 읽은것
+                        while((fileByte = fis.read()) != -1) {
+                            fos.write(fileByte);
+                        }
+                        //자원사용종료
+                        fis.close();
+                        fos.close();
+
+                    } catch (FileNotFoundException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+
+                    //원본 파일경로
+                    String orithickouterFilePath = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\Assets\\img\\logoimg6.jpg";
+                    //복사될 파일경로
+                    String copythickouterFilePath = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\" + user_seq + "\\logoimg6.jpg";
+
+                    //파일객체생성
+                    File orithickouterFile = new File(orithickouterFilePath);
+                    //복사파일객체생성
+                    File copythickouterFile = new File(copythickouterFilePath);
+
+                    try {
+
+                        FileInputStream fis = new FileInputStream(orithickouterFile); //읽을파일
+                        FileOutputStream fos = new FileOutputStream(copythickouterFile); //복사할파일
+
+                        int fileByte = 0;
+                        // fis.read()가 -1 이면 파일을 다 읽은것
+                        while((fileByte = fis.read()) != -1) {
+                            fos.write(fileByte);
+                        }
+                        //자원사용종료
+                        fis.close();
+                        fos.close();
+
+                    } catch (FileNotFoundException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+
+                    //원본 파일경로
+                    String orithinouterFilePath = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\Assets\\img\\logoimg5.jpg";
+                    //복사될 파일경로
+                    String copythinouterFilePath = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\" + user_seq + "\\logoimg5.jpg";
+
+                    //파일객체생성
+                    File orithinouterFile = new File(orithinouterFilePath);
+                    //복사파일객체생성
+                    File copythinouterFile = new File(copythinouterFilePath);
+
+                    try {
+
+                        FileInputStream fis = new FileInputStream(orithinouterFile); //읽을파일
+                        FileOutputStream fos = new FileOutputStream(copythinouterFile); //복사할파일
+
+                        int fileByte = 0;
+                        // fis.read()가 -1 이면 파일을 다 읽은것
+                        while((fileByte = fis.read()) != -1) {
+                            fos.write(fileByte);
+                        }
+                        //자원사용종료
+                        fis.close();
+                        fos.close();
+
+                    } catch (FileNotFoundException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+
+
+                }else {
+                    System.out.println("이미 폴더가 생성되어 있습니다.");
+                }
+
+                byte[] data = file.getBytes();
+                FileOutputStream fos = new FileOutputStream(path + "/" + fileName);
+                fos.write(data);
+                fos.close();
+
                 //라디오 버튼으로 옷 종류 분류
                 String type = CmmUtil.nvl((String) request.getParameter("type"));
                 log.info("clothing type : " + type);
@@ -154,6 +401,13 @@ public class ImageController {
 
         }
         return "/Redirect";
+    }
+    @RequestMapping(value = "DelImg" , method = RequestMethod.POST)
+    public @ResponseBody String DelImg(HttpServletRequest request) throws Exception{
+        String seq =request.getParameter("seq");
+        String file_name = request.getParameter("img");
+
+        return mainService.delimg(file_name);
     }
 }
 

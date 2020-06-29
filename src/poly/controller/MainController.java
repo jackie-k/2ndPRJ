@@ -1,15 +1,19 @@
 package poly.controller;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import poly.dto.MainDTO;
 import poly.service.IMainService;
 import poly.service.impl.MainService;
+import poly.service.impl.UploadService;
 import poly.util.CmmUtil;
 
 import javax.annotation.Resource;
+import javax.jms.Session;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -20,6 +24,9 @@ import java.util.List;
 public class MainController {
     private Logger log = Logger.getLogger(this.getClass());
 
+    @Autowired
+    UploadService uploadService;
+
     @Resource(name = "MainService")
     private IMainService mainService;
 
@@ -29,8 +36,79 @@ public class MainController {
     }
 
     @RequestMapping(value = "recom")
-    public String recom(){
-        return "recom";
+    public String recom(Model model, HttpSession session,HttpServletRequest request) throws Exception{
+       String avgtemp = request.getParameter("avgtemp");
+       double avg=Double.parseDouble(avgtemp);
+       log.info(avgtemp);
+
+       String a[] = {"0","0","0"};
+
+       if(avg < 5){
+           a[0]="2";
+           a[1]="4";
+           a[2]="6";
+       } else if (5 < avg && avg < 15){
+           a[0]="2";
+           a[1]="4";
+           a[2]="5";
+       } else if (15 < avg && avg < 20) {
+           a[0]="0";
+           a[1]="2";
+           a[2]="4";
+       } else if (20 < avg && avg <27) {
+           a[0]="0";
+           a[1]="1";
+           a[2]="4";
+       } else {
+           a[0]="0";
+           a[1]="1";
+           a[2]="3";
+       }
+
+
+       String c[]=new String[3];
+       String email = (String) session.getAttribute("user_mail");
+       log.info(email);
+       MainDTO mDTO = new MainDTO();
+       mDTO = mainService.seqcheck(email);
+       log.info(mDTO.getSeq());
+       List<MainDTO> mList = new ArrayList<>();
+
+           for (int i = 0; i < 3; i++) {
+               mDTO.setCategory(a[i]);
+               log.info("a[i] : " + mDTO.getCategory());
+               mList = mainService.getimg(mDTO);
+               if (mList.size()<1){
+                   mList = new ArrayList<>();
+                   c[i]="0";
+               }else {
+
+                   int randomnum = (int) (Math.random() * mList.size());
+                   log.info("random number : " + randomnum);
+
+                   c[i] = mList.get(randomnum).getFile_name();
+                   log.info(c[i]);
+               }
+
+       }
+
+           if (c[0] == c[1] && c[1] == c[2] && c[2] == "0") {
+               model.addAttribute("msg", "교수님바보");
+               model.addAttribute("url", "/main.do");
+
+               return "/Redirect";
+           }else {
+
+               for (int i = 0; i < 3; i++) {
+                   log.info(c[i]);
+                   if (c[i] == "0")
+                       c[i] = "logoimg" + a[i] + ".jpg";
+               }
+
+               model.addAttribute("mDTO", mDTO);
+               model.addAttribute("c", c);
+               return "recom";
+           }
     }
 
 
@@ -57,7 +135,7 @@ public class MainController {
             e.printStackTrace();
         }
         if(mList.size()<1){
-            model.addAttribute("msg", " ex) 충남 -> 충청남도 ");
+            model.addAttribute("msg", " 검색어를 정확하게 입력해주세요. (ex. 충남 -> 충청남도 )");
             model.addAttribute("url", "/main.do");
 
             return "/Redirect";

@@ -64,6 +64,18 @@
         WHERE
             USER_SEQ = #{user_seq}
     </select>
-
-
+    <delete id="delimg" parameterType="String">
+        DELETE
+        FROM c_info
+        WHERE FILE_NAME = #{file_name}
+    </delete>
+    <select id = "getimg" resultType="MainDTO" parameterType = "MainDTO">
+        SELECT
+            FILE_NAME AS file_name
+        FROM
+            c_info
+        WHERE
+            CATEGORY = #{category}
+            AND USER_SEQ = #{seq}
+    </select>
 </mapper>

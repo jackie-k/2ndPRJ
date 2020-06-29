@@ -133,6 +133,9 @@
 
             }
 
+            const avgtemp = document.getElementById("avgtemp");
+            avgtemp.value = (maxTemp+minTemp)/2;
+
         });
 
 
@@ -189,7 +192,13 @@
 
 
     <div class="page">
+        <%
+            if (session.getAttribute("user_name") != null) {
+        %>
         <button class = "fun-btn" onclick="location.href='http://localhost:8080/recom.do'"> choose today's outfit </button>
+        <%
+            }
+        %>
     </div>
 
 </div>

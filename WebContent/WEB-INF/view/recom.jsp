@@ -1,4 +1,10 @@
+<%@ page import="poly.dto.MainDTO" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    MainDTO mDTO = (MainDTO)request.getAttribute("mDTO");
+    String c[] = (String[]) request.getAttribute("c");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,17 +16,22 @@
     <title>recommendation</title>
 </head>
 <body>
+
 <div class="recomContainer">
     <div>
-    <div style="display: inline-flex;">
-        <img src="/Assets/img/clothes/tshirt.jpg" class="clothes"/>
-        <img src="/Assets/img/clothes/pants.jpg" class="clothes"/>
-    </div>
+        <div class = "imageList row">
+
+            <%for (int i = 0 ; i<3; i++){%>
+            <div class = "singlePic col-md-4" id="DI<%=i%>">
+                <img class = "instaPic" src="/<%=mDTO.getSeq()%>/<%=c[i]%>">
+            </div>
+            <%}%>
+        </div>
 
 
     <div class="page">
 
-        <button class = "fun-btn"> reload </button>
+        <button onClick="window.location.reload()" class = "fun-btn"> reload </button>
 
     </div>
     </div>

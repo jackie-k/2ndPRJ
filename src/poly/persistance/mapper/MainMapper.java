@@ -21,4 +21,8 @@ public interface MainMapper {
     MainDTO category(String type) throws Exception;
 
     int insertFileInfo(MainDTO cDTO) throws Exception;
+
+    String delimg(String file_name) throws Exception;
+
+    List<MainDTO> getimg(MainDTO mDTO) throws Exception;
 }

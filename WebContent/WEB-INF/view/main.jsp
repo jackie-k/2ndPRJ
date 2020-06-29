@@ -1,4 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String login = (String) session.getAttribute("user_name");
+%>
 <html>
 <head>
     <meta charset="UTF-8" />
@@ -55,7 +58,7 @@
             curlat = position.coords.latitude;
             curlng = position.coords.longitude;
 
-            console.log("현재좌표 : " + curlat, curlng)
+            console.log("현재좌표 : " + curlat, curlng);
 
         curlat = 60;
         curlng = 127;
@@ -141,6 +144,11 @@
 
              }
 
+
+
+             const avgtemp = document.getElementById("avgtemp");
+             avgtemp.value = (tmxData*1 + tmnData*1)/2;
+             console.log("avgtemp : "+ avgtemp);
          });
 
 
@@ -189,7 +197,16 @@
 <%--    검색결과가 없을 경우 alert 창으로 알림띄우기--%>
 
         <div class="page">
-        <button class = "fun-btn" onclick="location.href='http://localhost:8080/recom.do'"> choose today's outfit </button>
+            <%
+                if (session.getAttribute("user_name") != null) {
+            %>
+            <form action="/recom.do" method="post">
+            <button class = "fun-btn" type="submit"> choose today's outfit </button>
+                <input type = "hidden" name = "avgtemp" id = "avgtemp" value = "(maxTemp+minTemp)/2">
+            </form>
+            <%
+                }
+            %>
     </div>
 
 </div>
