@@ -19,4 +19,6 @@ public interface IMainService {
     String delimg(String file_name) throws Exception;
 
     List<MainDTO> getimg(MainDTO mDTO) throws Exception;
+
+//    List<MainDTO> getCorInfo() throws Exception;
 }

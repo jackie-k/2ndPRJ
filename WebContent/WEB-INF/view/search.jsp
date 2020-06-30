@@ -195,7 +195,7 @@
         <%
             if (session.getAttribute("user_name") != null) {
         %>
-        <button class = "fun-btn" onclick="location.href='http://localhost:8080/recom.do'"> choose today's outfit </button>
+        <button class = "fun-btn" onclick="location.href='/recom.do'"> choose today's outfit </button>
         <%
             }
         %>

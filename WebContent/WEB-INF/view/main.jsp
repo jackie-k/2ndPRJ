@@ -163,8 +163,8 @@
         %>
 
         <a
-                href="https://kauth.kakao.com/oauth/authorize?client_id=63864be6b254a58d1104f56d171a9285&redirect_uri=http://localhost:8080/kakaologin.do&response_type=code">
-            <img src="/Assets/img/kakaologin.png" style="width: 20%">
+                href="https://kauth.kakao.com/oauth/authorize?client_id=63864be6b254a58d1104f56d171a9285&redirect_uri=http://15.165.118.144:8080/kakaologin.do&response_type=code">
+            <img src="/Assets/img/kakaologin.png" style="width: 13%">
         </a>
         <%
         } else {
@@ -200,7 +200,7 @@
             <%
                 if (session.getAttribute("user_name") != null) {
             %>
-            <form action="/recom.do" method="post">
+            <form class="buttonForm" action="/recom.do" method="post">
             <button class = "fun-btn" type="submit"> choose today's outfit </button>
                 <input type = "hidden" name = "avgtemp" id = "avgtemp" value = "(maxTemp+minTemp)/2">
             </form>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="SpringForMySQL:war2">
+    <output-path>$PROJECT_DIR$/out/artifacts/SpringForMySQL_war2</output-path>
+    <root id="archive" name="SpringForMySQL_war.war">
+      <element id="artifact" artifact-name="SpringForMySQL:war exploded" />
+    </root>
+  </artifact>
+</component>

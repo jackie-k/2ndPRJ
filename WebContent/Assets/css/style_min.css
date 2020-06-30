@@ -1,5 +1,5 @@
 body {
-    height: auto;
+    height: 98vh;
     font-family: "Jua", sans-serif;
     color: white;
     font-size: 2em;
@@ -37,7 +37,7 @@ body {
     font-size: 2em;
 }
 
-form {
+form#searchForm {
     position: relative;
     top: 50%;
     left: 50%;
@@ -79,22 +79,23 @@ input {
     transition: all 1s;
 }
 
-form:hover {
+form#searchForm:hover {
     width: 200px;
     cursor: pointer;
 }
 
-form:hover input {
+form#searchForm:hover input {
     display: block;
 }
 
-form:hover .fa {
+form#searchForm:hover .fa {
     background: linear-gradient(to right, #ffc371, #ff5f6d);
 }
 
 .page {
     display: flex;
     justify-content: center;
+    margin-top: 10px;
 }
 
 
@@ -206,6 +207,52 @@ a:visited{
 }
 
 .recomContainer {
-    height : 70%;
+    height : 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+}
+
+.imageShow {
+    min-height: 50%;
+    display: inline-flex;
+}
+
+.recomShow{
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 300px;
+    margin: 3px;
+
+}
+
+.recomPic {
+    width: 100%;
+
+}
+
+.hrefHome:link {
+    text-decoration: none; color:#83c3d7;
+}
+
+.hrefHome:visited {
+    text-decoration: none; color:#83c3d7;
+}
+
+.hrefHome:active {
+    text-decoration: none; color:#83c3d7;
+}
+
+.hrefHome:hover {
+    text-decoration: none; color:#83c3d7;
+}
+
+.homeDiv {
+    position: absolute;
+    top: 2%;
+    right: 2%;
 }

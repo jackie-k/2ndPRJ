@@ -25,7 +25,7 @@ import java.util.*;
 public class ImageController {
     private Logger log = Logger.getLogger(this.getClass());
 
-    private static String SAVE_PATH = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\";
+    private static String SAVE_PATH = "usr/local/apache-tomcat-8.5.54/webapps/ROOT/";
 
     @RequestMapping(value = "myPage")
     public String myPage(HttpSession session, HttpServletRequest request, Model model) throws Exception {
@@ -103,14 +103,14 @@ public class ImageController {
                 System.out.println("size : " + size);
                 System.out.println("saveFileName : " + fileName);
 
-                String path = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\" + user_seq; //폴더 경로
+                String path = "usr/local/apache-tomcat-8.5.54/webapps/ROOT/" + user_seq; //폴더 경로
                 File Folder = new File(path);
 
                 // 해당 디렉토리가 없을경우 디렉토리를 생성합니다.
                 if (!Folder.exists()) {
                     try{
                         Folder.mkdir(); //폴더 생성합니다.
-                        System.out.println("폴더가 생성되었습니다.");
+                        System.out.println("Folder created.");
 
 
                     }
@@ -119,9 +119,9 @@ public class ImageController {
                     }
 
                     //원본 파일경로
-                    String orilogoFilePath = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\Assets\\img\\logoimg0.jpg";
+                    String orilogoFilePath = "/usr/local/apache-tomcat-8.5.54/webapps/ROOT/Assets/img/logoimg0.jpg";
                     //복사될 파일경로
-                    String copylogoFilePath = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\" + user_seq + "\\logoimg0.jpg";
+                    String copylogoFilePath = "/usr/local/apache-tomcat-8.5.54/webapps/ROOT/" + user_seq + "/logoimg0.jpg";
 
                     //파일객체생성
                     File orilogoFile = new File(orilogoFilePath);
@@ -150,9 +150,9 @@ public class ImageController {
                         e.printStackTrace();
                     }
                     //원본 파일경로
-                    String orishortsleeveFilePath = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\Assets\\img\\logoimg1.jpg";
+                    String orishortsleeveFilePath = "/usr/local/apache-tomcat-8.5.54/webapps/ROOT/Assets/img/logoimg1.jpg";
                     //복사될 파일경로
-                    String copyshortsleeveFilePath = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\" + user_seq + "\\logoimg1.jpg";
+                    String copyshortsleeveFilePath = "/usr/local/apache-tomcat-8.5.54/webapps/ROOT/" + user_seq + "/logoimg1.jpg";
 
                     //파일객체생성
                     File orishortsleeveFile = new File(orishortsleeveFilePath);
@@ -182,9 +182,9 @@ public class ImageController {
                     }
 
                     //원본 파일경로
-                    String orilongsleeveFilePath = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\Assets\\img\\logoimg2.jpg";
+                    String orilongsleeveFilePath = "/usr/local/apache-tomcat-8.5.54/webapps/ROOT/Assets/img/logoimg2.jpg";
                     //복사될 파일경로
-                    String copylongsleeveFilePath = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\" + user_seq + "\\logoimg2.jpg";
+                    String copylongsleeveFilePath = "/usr/local/apache-tomcat-8.5.54/webapps/ROOT/" + user_seq + "/logoimg2.jpg";
 
                     //파일객체생성
                     File orilongsleeveFile = new File(orilongsleeveFilePath);
@@ -214,9 +214,9 @@ public class ImageController {
                     }
 
                     //원본 파일경로
-                    String orishortpantsFilePath = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\Assets\\img\\logoimg3.jpg";
+                    String orishortpantsFilePath = "/usr/local/apache-tomcat-8.5.54/webapps/ROOT/Assets/img/logoimg3.jpg";
                     //복사될 파일경로
-                    String copyshortpantsFilePath = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\" + user_seq + "\\logoimg3.jpg";
+                    String copyshortpantsFilePath = "/usr/local/apache-tomcat-8.5.54/webapps/ROOT/" + user_seq + "/logoimg3.jpg";
 
                     //파일객체생성
                     File orishortpantsFile = new File(orishortpantsFilePath);
@@ -246,9 +246,9 @@ public class ImageController {
                     }
 
                     //원본 파일경로
-                    String orilongpantsFilePath = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\Assets\\img\\logoimg4.jpg";
+                    String orilongpantsFilePath = "/usr/local/apache-tomcat-8.5.54/webapps/ROOT/Assets/img/logoimg4.jpg";
                     //복사될 파일경로
-                    String copylongpantsFilePath = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\" + user_seq + "\\logoimg4.jpg";
+                    String copylongpantsFilePath = "/usr/local/apache-tomcat-8.5.54/webapps/ROOT/" + user_seq + "/logoimg4.jpg";
 
                     //파일객체생성
                     File orilongpantsFile = new File(orilongpantsFilePath);
@@ -278,9 +278,9 @@ public class ImageController {
                     }
 
                     //원본 파일경로
-                    String orithickouterFilePath = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\Assets\\img\\logoimg6.jpg";
+                    String orithickouterFilePath = "/usr/local/apache-tomcat-8.5.54/webapps/ROOT/Assets/img/logoimg6.jpg";
                     //복사될 파일경로
-                    String copythickouterFilePath = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\" + user_seq + "\\logoimg6.jpg";
+                    String copythickouterFilePath = "/usr/local/apache-tomcat-8.5.54/webapps/ROOT/" + user_seq + "/logoimg6.jpg";
 
                     //파일객체생성
                     File orithickouterFile = new File(orithickouterFilePath);
@@ -310,9 +310,9 @@ public class ImageController {
                     }
 
                     //원본 파일경로
-                    String orithinouterFilePath = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\Assets\\img\\logoimg5.jpg";
+                    String orithinouterFilePath = "/usr/local/apache-tomcat-8.5.54/webapps/ROOT/Assets/img/logoimg5.jpg";
                     //복사될 파일경로
-                    String copythinouterFilePath = "C:\\Users\\data-16\\IdeaProjects\\realfinal\\WebContent\\" + user_seq + "\\logoimg5.jpg";
+                    String copythinouterFilePath = "/usr/local/apache-tomcat-8.5.54/webapps/ROOT/" + user_seq + "/logoimg5.jpg";
 
                     //파일객체생성
                     File orithinouterFile = new File(orithinouterFilePath);

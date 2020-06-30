@@ -25,4 +25,6 @@ public interface MainMapper {
     String delimg(String file_name) throws Exception;
 
     List<MainDTO> getimg(MainDTO mDTO) throws Exception;
+
+    List<MainDTO> getCoorInfo(MainDTO pDTO) throws Exception;
 }

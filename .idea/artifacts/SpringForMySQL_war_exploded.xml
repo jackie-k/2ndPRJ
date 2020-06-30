@@ -40,17 +40,17 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-context-support:4.3.25.RELEASE" />
           <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.8.6" />
           <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.10" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-context:4.3.7.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.3.7.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-core:4.3.7.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.3.7.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-web:4.3.7.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.3.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:4.2.9.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.2.9.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:4.2.9.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.2.9.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:4.2.9.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.2.9.RELEASE" />
           <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.6.11" />
           <element id="library" level="project" name="Maven: org.aspectj:aspectjrt:1.6.8" />
           <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.2.2" />
           <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:1.2.0" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:4.3.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:4.2.9.RELEASE" />
           <element id="library" level="project" name="Maven: commons-dbcp:commons-dbcp:1.4" />
           <element id="library" level="project" name="Maven: commons-pool:commons-pool:1.5.4" />
           <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />

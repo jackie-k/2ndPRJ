@@ -9,7 +9,7 @@
             X AS x,
             Y AS y
         FROM
-            COORDINATE
+            coordinate
         WHERE
             NAME LIKE CONCAT ('%',#{SearchQuery},'%')
 
@@ -19,14 +19,14 @@
         SELECT
             COUNT(*)
             FROM
-                USER_INFO
+                user_info
             WHERE
                 USER_EMAIL = #{email}
     </select>
 
     <insert id = "userdup" parameterType = "MainDTO">
         INSERT INTO
-            USER_INFO(
+            user_info(
                 USER_NAME, USER_EMAIL
             )
             VALUES(
@@ -39,14 +39,14 @@
         SELECT
             USER_SEQ AS seq
         FROM
-            USER_INFO
+            user_info
         WHERE
             USER_EMAIL = #{email}
     </select>
 
     <insert id = "insertFileInfo" parameterType = "MainDTO">
         INSERT INTO
-            C_INFO(
+            c_info(
                 CATEGORY, FILE_NAME, USER_SEQ
             )
             VALUES(
@@ -60,7 +60,7 @@
             FILE_NAME AS file_name,
             USER_SEQ AS seq
         FROM
-            C_INFO
+            c_info
         WHERE
             USER_SEQ = #{user_seq}
     </select>

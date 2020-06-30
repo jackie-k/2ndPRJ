@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import poly.dto.MainDTO;
 import poly.service.IMainService;
 import poly.service.impl.MainService;
@@ -15,6 +16,7 @@ import poly.util.CmmUtil;
 import javax.annotation.Resource;
 import javax.jms.Session;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -47,15 +49,15 @@ public class MainController {
            a[0]="2";
            a[1]="4";
            a[2]="6";
-       } else if (5 < avg && avg < 15){
+       } else if (5 < avg && avg < 10){
            a[0]="2";
            a[1]="4";
            a[2]="5";
-       } else if (15 < avg && avg < 20) {
+       } else if (10 < avg && avg < 15) {
            a[0]="0";
            a[1]="2";
            a[2]="4";
-       } else if (20 < avg && avg <27) {
+       } else if (15 < avg && avg <20) {
            a[0]="0";
            a[1]="1";
            a[2]="4";
@@ -93,7 +95,7 @@ public class MainController {
        }
 
            if (c[0] == c[1] && c[1] == c[2] && c[2] == "0") {
-               model.addAttribute("msg", "교수님바보");
+               model.addAttribute("msg", "본인의 옷 이미지를 업로드 해 주세요");
                model.addAttribute("url", "/main.do");
 
                return "/Redirect";
@@ -155,5 +157,42 @@ public class MainController {
 
         return "/search";
     }
+
+//    @RequestMapping(value = "getCorInfo")
+//    @ResponseBody
+//    public List<MainDTO> getCorInfo(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws Exception {
+//
+//        String SearchQuery = CmmUtil.nvl((String) request.getParameter("SearchQuery"));
+//
+//        HashMap<String, String> hMap = new HashMap<String, String>();
+//
+//        log.info("original search query : " + SearchQuery);
+//
+//        //검색 쿼리 공백 제거
+//        SearchQuery = SearchQuery.replaceAll(" ","");
+//        log.info("trim search query : " + SearchQuery);
+//
+//        hMap.put("SearchQuery", SearchQuery);
+//
+//        List<MainDTO> rList = new ArrayList<>();
+//
+//        log.info(this.getClass().getName() + " : getCorInfo 호출");
+//
+//        MainDTO pDTO = new MainDTO();
+//
+//        rList = mainService.getCorInfo();
+//
+//        log.info("rList : " + rList.size());
+//
+//        if (rList == null) {
+//            rList = new ArrayList<MainDTO>();
+//        }
+//
+//        log.info("rList : " + rList.size());
+//
+//        log.info(this.getClass().getName() + " : getCorInfo 종료");
+//
+//        return rList;
+//    }
 
 }

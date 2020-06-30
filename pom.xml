@@ -12,6 +12,7 @@
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<slf4j.version>1.7.25</slf4j.version>
 		<log4j.version>2.11.0</log4j.version>
+		<org.springframework-version>4.2.9.RELEASE</org.springframework-version>
 
 	</properties>
 
