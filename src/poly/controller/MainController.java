@@ -12,6 +12,7 @@ import poly.service.IMainService;
 import poly.service.impl.MainService;
 import poly.service.impl.UploadService;
 import poly.util.CmmUtil;
+import sun.applet.Main;
 
 import javax.annotation.Resource;
 import javax.jms.Session;
@@ -33,7 +34,14 @@ public class MainController {
     private IMainService mainService;
 
     @RequestMapping(value = "main")
-    public String main(){
+    public String main(Model model) throws Exception {
+        List<MainDTO> rList = new ArrayList<>();
+        rList = mainService.collectFashion();
+        if(rList==null)
+            rList = new ArrayList<>();
+
+        model.addAttribute("rList", rList);
+
         return "main";
     }
 
@@ -105,7 +113,10 @@ public class MainController {
                    log.info(c[i]);
                    if (c[i] == "0")
                        c[i] = "logoimg" + a[i] + ".jpg";
+
+                   log.info(c[i]);
                }
+
 
                model.addAttribute("mDTO", mDTO);
                model.addAttribute("c", c);
@@ -152,47 +163,47 @@ public class MainController {
             }
         }
 
-
-
-
         return "/search";
     }
+    @RequestMapping(value = "/ReviewAdd")
+    public String ReviewAdd(HttpServletRequest request, Model model, HttpSession session) throws Exception {
+        String email = (String) session.getAttribute("user_mail");
+        String point = request.getParameter("point");
+        String outers = request.getParameter("review0");
+        String top = request.getParameter("review1");
+        String bottom = request.getParameter("review2");
 
-//    @RequestMapping(value = "getCorInfo")
-//    @ResponseBody
-//    public List<MainDTO> getCorInfo(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws Exception {
-//
-//        String SearchQuery = CmmUtil.nvl((String) request.getParameter("SearchQuery"));
-//
-//        HashMap<String, String> hMap = new HashMap<String, String>();
-//
-//        log.info("original search query : " + SearchQuery);
-//
-//        //검색 쿼리 공백 제거
-//        SearchQuery = SearchQuery.replaceAll(" ","");
-//        log.info("trim search query : " + SearchQuery);
-//
-//        hMap.put("SearchQuery", SearchQuery);
-//
-//        List<MainDTO> rList = new ArrayList<>();
-//
-//        log.info(this.getClass().getName() + " : getCorInfo 호출");
-//
-//        MainDTO pDTO = new MainDTO();
-//
-//        rList = mainService.getCorInfo();
-//
-//        log.info("rList : " + rList.size());
-//
-//        if (rList == null) {
-//            rList = new ArrayList<MainDTO>();
-//        }
-//
-//        log.info("rList : " + rList.size());
-//
-//        log.info(this.getClass().getName() + " : getCorInfo 종료");
-//
-//        return rList;
-//    }
+        log.info("email : " + email);
+        log.info("point : " + point);
+        log.info("outers : " + outers);
+        log.info("top : " + top);
+        log.info("bottom : " + bottom);
+
+        MainDTO rDTO = new MainDTO();
+
+        rDTO.setPoint(point);
+        rDTO.setEmail(email);
+        rDTO.setOuters(outers);
+        rDTO.setTop(top);
+        rDTO.setBottom(bottom);
+
+        int result = 0;
+
+        String msg, url;
+        result = mainService.reviewAdd(rDTO);
+        log.info("result : " + result);
+        if (result == 1) {
+            msg = "리뷰를 등록하였습니다.";
+            url = "/recomList.do";
+        } else {
+            msg = "리뷰를 등록에 실패하였습니다.";
+            url = "/recomList.do";
+        }
+        model.addAttribute("msg", msg);
+        model.addAttribute("url", url);
+
+        return "/Redirect";
+    }
+
 
 }

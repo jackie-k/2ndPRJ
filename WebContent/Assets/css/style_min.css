@@ -8,7 +8,7 @@ body {
 }
 
 .container {
-    height: 70%;
+    height: 100%;
 }
 
 #image {
@@ -172,9 +172,12 @@ form#searchForm:hover .fa {
     }
 }
 .login_bar {
-    width: 100%;
+    width: 50%;
     height: 65px;
     text-align: right;
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 .logout {
     color: white;
@@ -193,12 +196,14 @@ a:hover {
 a:visited{
     text-decoration: none !important;
 }
+
 .login_list {
 
 }
 .Wicon {
     width: 250px;
     height: 250px;
+    margin-bottom: 30px;
 }
 
 #rainimage {
@@ -255,4 +260,20 @@ a:visited{
     position: absolute;
     top: 2%;
     right: 2%;
+}
+
+.wordpop {
+    font-size: 0.7em;
+}
+
+.rank {
+
+}
+
+#scroll {
+    height: 30px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 10px;
+    margin-left: 15px;
 }

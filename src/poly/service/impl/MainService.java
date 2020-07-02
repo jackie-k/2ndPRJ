@@ -1,6 +1,10 @@
 package poly.service.impl;
 
 import org.apache.log4j.Logger;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.springframework.stereotype.Service;
 import poly.dto.MainDTO;
 import poly.persistance.mapper.MainMapper;
@@ -11,6 +15,7 @@ import poly.util.DateUtil;
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 @Service("MainService")
@@ -23,6 +28,11 @@ public class MainService implements IMainService {
     @Resource(name = "RedisMapper")
     private IRedisMapper redisMapper;
 
+
+    @Override
+    public int reviewAdd(MainDTO rDTO) throws Exception {
+        return mainMapper.reviewAdd(rDTO);
+    }
 
     @Override
     public List<MainDTO> getsearch(HashMap<String, String> hMap) throws Exception {
@@ -91,42 +101,57 @@ public class MainService implements IMainService {
         return mainMapper.getimg(mDTO);
     }
 
-//    @Override
-//    public List<MainDTO> getCorInfo(MainDTO pDTO) throws Exception {
-//
-//        log.info(this.getClass().getName() + " : getProjectInfo 호출");
-//
-//        List<MainDTO> rList = null;
-//
-//        System.out.println("pDTO : " + pDTO.getName());
-//
-//        String key = "PROJECT_INFO_" + DateUtil.getDateTime("yyyyMMdd");
-//
-//        if (redisMapper.getExists(key)) {
-//            rList = redisMapper.getProjectInfo(key);
-//
-//            if (rList == null) {
-//                rList = new ArrayList<MainDTO>();
-//            }
-//
-//            redisMapper.setTimeOutMinute(key, 1);
-//        } else {
-//
-//            rList = mainMapper.getProjectInfo(pDTO);
-//
-//            if (rList == null) {
-//                rList = new ArrayList<MainDTO>();
-//            }
-//
-//            if (rList.size() > 0) {
-//                redisMapper.setProjectInfo(key, rList);
-//
-//                redisMapper.setTimeOutMinute(key, 10);
-//            }
-//        }
-//
-//        log.info(this.getClass().getName() + " : getProjectInfo 종료");
-//
-//        return rList;
-//    }
+    @Override
+    public List<MainDTO> collectFashion() throws Exception {
+
+        log.info(this.getClass().getName() + ".collectFashion Start");
+
+        int res = 0;
+
+        List<MainDTO> pList = new ArrayList<MainDTO>();
+
+        String url = "https://store.musinsa.com/app/";
+
+        Document doc = null;
+
+        doc = Jsoup.connect(url).get();
+
+        Elements element = doc.select("body");
+
+        Iterator<Element> FashionRankList = element.select("dd.listItem").iterator();
+
+        while (FashionRankList.hasNext()) {
+
+            Element FashionInfo = FashionRankList.next();
+
+            String rank = FashionInfo.select("a span.rank").text(); // 영화 번호
+            String word = FashionInfo.select("a span.word").text(); // 영화 제목
+
+            System.out.println(rank + word);
+
+            FashionInfo = null;
+
+            MainDTO pDTO = new MainDTO();
+            pDTO.setRank(rank);
+            pDTO.setWord(word);
+
+
+            pList.add(pDTO);
+
+        }
+
+        return pList;
+
+    }
+
+    @Override
+    public String DelList(String top) throws Exception {
+        return mainMapper.DelList(top);
+    }
+
+    @Override
+    public List<MainDTO> getRecomList(String email) throws Exception {
+        return mainMapper.getRecomList(email);
+    }
+
 }

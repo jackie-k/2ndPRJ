@@ -78,4 +78,35 @@
             CATEGORY = #{category}
             AND USER_SEQ = #{seq}
     </select>
+    <insert id = "reviewAdd" parameterType="MainDTO">
+        INSERT
+        INTO reviews
+            (EMAIL,
+            POINT,
+            OUTERS,
+            TOP,
+            BOTTOM)
+        VALUES
+        (   #{email},
+            #{point},
+            #{outers},
+            #{top},
+            #{bottom})
+    </insert>
+    <delete id="DelList" parameterType="String">
+        DELETE
+        FROM reviews
+        WHERE TOP = #{top}
+    </delete>
+    <select id = "getRecomList" resultType="MainDTO" parameterType="String">
+        SELECT
+            OUTERS AS outers,
+            TOP AS top,
+            BOTTOM AS bottom,
+            POINT AS point
+        FROM
+            reviews
+        WHERE
+            EMAIL = #{email}
+    </select>
 </mapper>

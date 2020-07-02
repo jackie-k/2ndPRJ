@@ -48,8 +48,9 @@
         </div>
 
         <div class="homeDiv"><a href = "/main.do" class="hrefHome"><i class="fas fa-home" style="font-size: 30px;"></i></a></div>
+        <div class="recomDiv"><a href = "/recomList.do"><img src="/Assets/img/stars.png" style="width: 25px; position: absolute; top: 20%; right: 27.05%;"></a></div>
 
-        <div style="position: fixed; right: 26.5%; top : 30%;">
+        <div style="position: absolute; right: 26.5%; top : 30%;">
             <!-- 파일 업로드 버튼 -->
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#fileupload" style="background-color: #64b3f3 !important; border-color: #64b3f3 !important;">
                 파일업로드
@@ -105,10 +106,10 @@
     </div>
 
 
-    <hr width = "910px" size = "0.5" style="color: white;">
+    <hr width = 100% size = "0.5" style="background-color: white;">
 
-    <div class = "imageList row">
-        <%for(int i = 0 ; i <iList.size(); i++) { %>
+    <div class = "imageList row" style="margin-right: 0px !important; margin-left: 0px !important;">
+        <%for(int i = iList.size()-1 ; i > -1 ; i--) { %>
 
         <div class = "singlePic col-md-4" id="DI<%=i%>">
             <img class = "instaPic" src="/<%=iList.get(i).getSeq()%>/<%=iList.get(i).getFile_name()%>">
@@ -120,7 +121,7 @@
 
 </div>
 <script>
-    <%for(int i = 0 ; i <iList.size(); i++) { %>
+    <%for(int i = 0 ; i < iList.size(); i++) { %>
     $('#DI<%=i%>').click(function () {
        if (confirm('이미지를 삭제하시겠습니까?')){
            $.ajax({

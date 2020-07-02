@@ -8,6 +8,8 @@ import java.util.List;
 
 @Mapper("MainMapper")
 public interface MainMapper {
+    int reviewAdd(MainDTO rDTO) throws Exception;
+
     List<MainDTO> getMyPage(String user_seq) throws Exception;
 
     List<MainDTO> getsearch(HashMap<String, String> hMap) throws Exception;
@@ -27,4 +29,8 @@ public interface MainMapper {
     List<MainDTO> getimg(MainDTO mDTO) throws Exception;
 
     List<MainDTO> getCoorInfo(MainDTO pDTO) throws Exception;
+
+    String DelList(String top) throws Exception;
+
+    List<MainDTO> getRecomList(String email) throws Exception;
 }

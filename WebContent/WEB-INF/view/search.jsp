@@ -164,11 +164,11 @@
             }
         %>
     </div>
-    <div style="text-align: -webkit-center;">
+    <div style="text-align: -webkit-center; margin-bottom: 45px; margin-top: 30px;">
         <div class="Wicon"><img id = "rainimage" src = "/Assets/img/rain.png"/></div>
-        <p id="city"><%=mList.get(0).getName()%></p>
-        <p><span id='minTemp'>minimum temperature</span><span>℃</span></p>
-        <p><span id='maxTemp'>maximum temperature</span><span>℃</span></p>
+        <p id="city" style="margin-bottom: 10px;"><%=mList.get(0).getName()%></p>
+        <p style="margin-bottom: 10px;"><span id='minTemp'>minimum temperature</span><span>℃</span></p>
+        <p style="margin-bottom: 10px;"><span id='maxTemp'>maximum temperature</span><span>℃</span></p>
         <p><span id='rainPop'>rain</span></p>
     </div>
     <%--    <div>--%>
@@ -195,7 +195,10 @@
         <%
             if (session.getAttribute("user_name") != null) {
         %>
-        <button class = "fun-btn" onclick="location.href='/recom.do'"> choose today's outfit </button>
+        <form class="buttonForm" action="/recom.do" method="post">
+            <button class = "fun-btn" type="submit"> choose today's outfit </button>
+            <input type = "hidden" name = "avgtemp" id = "avgtemp" value = "(maxTemp+minTemp)/2">
+        </form>
         <%
             }
         %>

@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 
 public interface IMainService {
+    int reviewAdd(MainDTO rDTO) throws Exception;
+
     List<MainDTO> getsearch(HashMap<String, String> hMap) throws Exception;
 
     String usercheck(MainDTO mDTO) throws Exception;
@@ -20,5 +22,9 @@ public interface IMainService {
 
     List<MainDTO> getimg(MainDTO mDTO) throws Exception;
 
-//    List<MainDTO> getCorInfo() throws Exception;
+    List<MainDTO> collectFashion() throws Exception;
+
+    String DelList(String top) throws Exception;
+
+    List<MainDTO> getRecomList(String email) throws Exception;
 }

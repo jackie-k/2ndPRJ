@@ -19,6 +19,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.*;
+import java.lang.reflect.Array;
 import java.util.*;
 
 @Controller
@@ -103,7 +104,7 @@ public class ImageController {
                 System.out.println("size : " + size);
                 System.out.println("saveFileName : " + fileName);
 
-                String path = "usr/local/apache-tomcat-8.5.54/webapps/ROOT/" + user_seq; //폴더 경로
+                String path = "/usr/local/apache-tomcat-8.5.54/webapps/ROOT/" + user_seq; //폴더 경로
                 File Folder = new File(path);
 
                 // 해당 디렉토리가 없을경우 디렉토리를 생성합니다.
@@ -111,7 +112,6 @@ public class ImageController {
                     try{
                         Folder.mkdir(); //폴더 생성합니다.
                         System.out.println("Folder created.");
-
 
                     }
                     catch(Exception e){
@@ -383,10 +383,20 @@ public class ImageController {
                 cDTO.setCategory(category);
                 cDTO.setFile_name(fileName);
                 cDTO.setSeq(user_seq);
+                int res = 0;
+                try{
+                    res = uploadService.insertFileInfo(cDTO);
+                }catch(Exception e){
+                    log.info("파일 없음");
+                    msg = "업로드 실패";
+                    model.addAttribute("msg", msg);
+                    model.addAttribute("url", "myPage.do");
+                    return "/Redirect";
+                }
 
-                int res = uploadService.insertFileInfo(cDTO);
 
-                if (res > 0) {
+
+                if (res != 0 ) {
                     msg = "업로드 성공";
                     model.addAttribute("msg", msg);
                     model.addAttribute("url", "myPage.do");
@@ -408,6 +418,37 @@ public class ImageController {
         String file_name = request.getParameter("img");
 
         return mainService.delimg(file_name);
+    }
+
+    @RequestMapping(value = "recomList")
+    public String recomList(HttpSession session, HttpServletRequest request, Model model) throws Exception {
+
+        String email = (String) session.getAttribute("user_mail");
+        log.info(email);
+
+        List<MainDTO> rList = new ArrayList<>();
+
+        try {
+            rList = mainService.getRecomList(email);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if(rList == null)
+            rList = new ArrayList<>();
+        model.addAttribute("rList",rList);
+
+
+
+        return "/Mypage/recomList";
+    }
+
+    @RequestMapping(value = "DelList" , method = RequestMethod.POST)
+    public @ResponseBody String DelList(HttpServletRequest request) throws Exception{
+        String seq =request.getParameter("review_seq");
+        String top = request.getParameter("top");
+
+        return mainService.DelList(top);
     }
 }
 

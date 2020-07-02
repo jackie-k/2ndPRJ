@@ -128,7 +128,7 @@ body {
 }
 
 .imageList {
-    width: 950px;
+    width: 100%;
     min-height: 50%;
     display: flex;
 }
@@ -138,14 +138,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 300px !important;
-    height: 300px !important;
-    margin: 3px;
+    width: 285px !important;
+    height: 285px !important;
+    margin-bottom: 10px;
 
 }
 
 .instaPic {
-    width: 100%;
+    width: 285px;
 
 }
 
@@ -171,3 +171,47 @@ body {
     right: 26.5%;
 }
 
+.ListPic {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px !important;
+    height: 200px !important;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.recomList {
+    display: flex;
+    align-items: center;
+    place-content: center;
+}
+
+.ListPoint {
+    font-size: 25px;
+}
+.starRate {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#Sbutton {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    /*background-color: #fff !important;*/
+    /*color: salmon !important;*/
+}
+
+.starRate button {
+    border: 1px solid skyblue;
+    background-color: white;
+    color: skyblue;
+    padding: 5px;
+}
+
+.starRate button:hover {
+    color: white;
+    background-color: skyblue;
+}
